@@ -252,3 +252,4 @@ pytest -v tests/test_db_validation.py
 
 ### Q: How do you handle test setup and teardown?
 > *"We use Pytest fixtures in `conftest.py` with the `yield` statement (e.g. `created_booking`). Before the test, the fixture dynamically generates test data and creates a booking via the API. It yields the booking ID to the test, and in the teardown block after `yield`, it automatically deletes the booking from both the API and database. This ensures our test environment stays clean with zero residual test data."*
+# REST_API_Automation_Framework-
