@@ -239,17 +239,3 @@ pytest -v -m filter
 # Run a specific test suite
 pytest -v tests/test_db_validation.py
 ```
-
----
-
-## 💼 Interview Talking Points (2 YOE Perspective)
-
-### Q: How did you perform backend database validation in your API automation?
-> *"When validating API operations like `POST /booking` or `PUT /booking/{id}`, verifying only the HTTP 200 response is not enough—we must ensure the backend database properly persisted the transaction. In our framework, I created `utils/db_helper.py` using Python's `sqlite3` to execute SQL queries. In `tests/test_db_validation.py`, after an API call, we execute `SELECT * FROM bookings WHERE booking_id = ?` to verify database column values match the API payload, and `SELECT COUNT(*)` following a `DELETE` request to confirm the record was removed from the backend database."*
-
-### Q: How do you handle positive vs negative testing in API automation?
-> *"In `test_booking_crud.py`, we test positive flows (valid payloads, HTTP 200/201, schema contracts, headers). In `test_booking_negative.py`, we use Pytest parameterization (`@pytest.mark.parametrize`) to test negative scenarios: missing mandatory fields like `firstname` or `dates`, invalid data types, boundary dates, and security checks verifying that unauthorized calls return `403 Forbidden` and non-existent IDs return `404 Not Found`."*
-
-### Q: How do you handle test setup and teardown?
-> *"We use Pytest fixtures in `conftest.py` with the `yield` statement (e.g. `created_booking`). Before the test, the fixture dynamically generates test data and creates a booking via the API. It yields the booking ID to the test, and in the teardown block after `yield`, it automatically deletes the booking from both the API and database. This ensures our test environment stays clean with zero residual test data."*
-# REST_API_Automation_Framework-
