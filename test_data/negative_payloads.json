@@ -1,0 +1,51 @@
+[
+  {
+    "scenario_id": "NEG_01",
+    "description": "Missing firstname in booking payload",
+    "payload": {
+      "lastname": "Brown",
+      "totalprice": 150,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-05"
+      },
+      "additionalneeds": "Breakfast"
+    },
+    "expected_status": [400, 500]
+  },
+  {
+    "scenario_id": "NEG_02",
+    "description": "Missing lastname in booking payload",
+    "payload": {
+      "firstname": "John",
+      "totalprice": 200,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-05"
+      },
+      "additionalneeds": "Dinner"
+    },
+    "expected_status": [400, 500]
+  },
+  {
+    "scenario_id": "NEG_03",
+    "description": "Missing bookingdates object",
+    "payload": {
+      "firstname": "Alex",
+      "lastname": "Morgan",
+      "totalprice": 300,
+      "depositpaid": false,
+      "additionalneeds": "Late Checkout"
+    },
+    "expected_status": [400, 500]
+  },
+  {
+    "scenario_id": "NEG_04",
+    "description": "Empty payload object",
+    "payload": {},
+    "expected_status": [400, 500]
+  }
+]
+

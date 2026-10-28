@@ -1,0 +1,44 @@
+[
+  {
+    "scenario": "Standard Single Deluxe",
+    "payload": {
+      "firstname": "Arthur",
+      "lastname": "Dent",
+      "totalprice": 250,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-01",
+        "checkout": "2026-11-05"
+      },
+      "additionalneeds": "Towel and Tea"
+    }
+  },
+  {
+    "scenario": "Suite VIP Booking",
+    "payload": {
+      "firstname": "Ford",
+      "lastname": "Prefect",
+      "totalprice": 1200,
+      "depositpaid": false,
+      "bookingdates": {
+        "checkin": "2026-12-10",
+        "checkout": "2026-12-15"
+      },
+      "additionalneeds": "Late Checkout, High Floor"
+    }
+  },
+  {
+    "scenario": "Economy Budget Stay",
+    "payload": {
+      "firstname": "Trillian",
+      "lastname": "Astra",
+      "totalprice": 75,
+      "depositpaid": true,
+      "bookingdates": {
+        "checkin": "2026-11-20",
+        "checkout": "2026-11-22"
+      },
+      "additionalneeds": "None"
+    }
+  }
+]
